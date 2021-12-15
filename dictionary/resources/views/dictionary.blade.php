@@ -8,8 +8,19 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Result</h1>
-<p>Discount Amount:{{$result}} </p>
-<p>Discount Price:{{$result2}}</p>
+<form action="/dictionary" method="post">
+    @csrf
+    <input type="text" placeholder="Nhập từ khóa" name="newWord">
+    <button>Search</button>
+</form>
+<?php
+if(isset($abv)) {
+    echo "result: ".$abv;
+}else if(isset($none)) {
+    echo "result: ".$none;
+}else if(isset($nono)){
+    echo "result: ".$nono;
+}
+?>
 </body>
 </html>

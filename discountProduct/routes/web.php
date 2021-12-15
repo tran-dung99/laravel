@@ -22,7 +22,8 @@ Route::get('/product',function() {
 
 Route::post('/discount',function(Illuminate\Http\Request $request) {
     if($request->price !== null && $request->discount !== null){
-        $result =  $request->price * $request->discount * 0.1;
-        return view('display-discount',compact('result'));
+        $result =  ($request->price) * ($request->discount) * 0.1;
+        $result2 = ($request->price)-($request->price * $request->discount * 0.1);
+        return view('display-discount',compact(['result','result2']));
     }
 });
