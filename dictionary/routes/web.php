@@ -40,3 +40,11 @@ Route::post('/dictionary',function(Illuminate\Http\Request $request){
           return view('dictionary',compact('nono'));
       }
 });
+
+
+
+Route::get('/search/{search}', function ($search) {
+
+    echo "hello";
+
+})->where('search', '.*');
