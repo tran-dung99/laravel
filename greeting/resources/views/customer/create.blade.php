@@ -5,3 +5,9 @@
     <input type="text" placeholder="Nhập địa chỉ"  name="address">
     <button type="submit">Add</button>
 </form>
+<?php
+if (isset($_REQUEST["message"])) {
+    echo $_REQUEST["message"];
+}
+?>
+<a href="{{route("customers")}}">Quay lại trang chủ</a>
