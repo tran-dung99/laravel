@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('backend.layout.master');
 });
 
 Route::get('/greeting/{name?}',function($name=null){
@@ -45,5 +45,6 @@ Route::prefix('customers')->group(function() {
     Route::get('/{id}/detail',[CustomerController::class,"detail"])->name("customers.detail");
     Route::get('/{id}/formUpdate',[CustomerController::class,"showFormUpdate"])->name("customers.update");
     Route::post('/update',[CustomerController::class,"updateCustomer"])->name("customer.update-ne");
+    Route::any('/search',[CustomerController::class,"search"])->name("customer.search");
 });
 

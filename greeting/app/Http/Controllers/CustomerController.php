@@ -18,7 +18,7 @@ class CustomerController extends Controller
 
     public function showList() {
         $customers = $this->customerRepository->getAll();
-        return view("customer.list",compact("customers"));
+        return view("backend.customer.list",compact("customers"));
     }
 
     public function deleteCustomer($id)
@@ -29,7 +29,7 @@ class CustomerController extends Controller
 
     public function showFormCreate()
     {
-        return view("customer.create");
+        return view("backend.customer.create");
     }
 
     public function createNewCustomer(Request $request)
@@ -42,19 +42,24 @@ class CustomerController extends Controller
     {
         $customer = $this->customerRepository->getById($id);
 //        dd($customer);
-        return view("customer.detail",compact("customer"));
+        return view("backend.customer.detail",compact("customer"));
     }
 
     public function showFormUpdate($id) {
         $customer = $this->customerRepository->getById($id);
 //        dd($customer);
-        return view("customer.update",compact("customer"));
+        return view("backend.customer.update",compact("customer"));
     }
 
     public function updateCustomer(Request $request)
     {
-        $this->customerRepository->update($request);
 //        dd($request);
+        $this->customerRepository->update($request);
         return redirect()->route("customers");
+    }
+
+    public function search(Request $request) {
+        $customers = $this->customerRepository->search($request);
+        return view("backend.customer.list",compact('customers'));
     }
 }
