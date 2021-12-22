@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Repositories\CustomerRepository;
 use Illuminate\Cache\Repository;
 use Illuminate\Http\Request;
@@ -11,6 +12,8 @@ use phpDocumentor\Reflection\Types\Compound;
 class CustomerController extends Controller
 {
     protected $customerRepository;
+
+
     public function __construct(CustomerRepository $customerRepository)
     {
         $this->customerRepository = $customerRepository;
